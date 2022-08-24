@@ -1,4 +1,15 @@
-# NJ MVC Appointment Helper
+# A minimal version of NJ MVC Appointment Helper
+
+    usage: modify the `check_init_permit.py` file.
+
+Please see the orignal repo for more details: https://github.com/tangbao/NJ-MVC-Appointment-Helper
+
+The following is the orignal readme:
+
+----
+
+
+## NJ MVC Appointment Helper
 
 An UNOFFICIAL Telegram bot that helps you find the most recent available appointment place for you.
 

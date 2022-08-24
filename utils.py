@@ -120,11 +120,13 @@ def parse_response_one(response, last_time, loc_id):
 
 def gen_avail_places(sorted_list, service_time_url, is_from_parse_one):
     if len(sorted_list) == 0:
-        return "No places available for the service you are querying. Please check later."
+        return "No places available for the service you are querying. Please check later.", "331231"
 
     reply = 'The most recent {:d} places you can visit: (date in yyyy-mm-dd, time in 24H)\n\n'.format(len(sorted_list))
 
+    first_time = None
     for item in sorted_list:
+        first_time = item['FirstOpenSlot']
         reply = reply + 'Time: ' + str(item['FirstOpenSlot']) + '\n' \
                 + 'Location: ' + LOCATION_ID[str(item['LocationId'])] + ' (' \
                 + LOCATION_ID_ADDR[str(item['LocationId'])] + ')\n' \
@@ -133,7 +135,7 @@ def gen_avail_places(sorted_list, service_time_url, is_from_parse_one):
             reply = reply + str(item['LocationId']) + '\n\n'
         else:
             reply = reply + '\n\n'
-    return reply
+    return reply, first_time
 
 
 def gen_job_list_keyboard(job_len):
